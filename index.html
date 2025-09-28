@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wovenu Bless - Portfolio</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
+
+    /* Header */
+    header {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 30px 15px;
+    }
+    header img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      object-fit: cover;
+    }
+    header h1 { margin-bottom: 5px; }
+    header p { font-size: 1.1rem; color: #ddd; margin-bottom: 10px; }
+    .social-links a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    .social-links a:hover { color: #1e90ff; }
+
+    /* Sections */
+    section {
+      background: #fff;
+      margin: 20px auto;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      max-width: 900px;
+    }
+    section h2 { color: #222; margin-bottom: 15px; }
+    ul { list-style-type: square; padding-left: 20px; margin-bottom: 15px; }
+
+    /* Form */
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form button {
+      background: #222;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    form button:hover {
+      background: #1e90ff;
+      transform: translateY(-2px);
+    }
+    #successPopup {
+      display: none;
+      margin-top: 15px;
+      padding: 15px;
+      background: #e0ffe0;
+      border: 1px solid green;
+      border-radius: 5px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background: #222;
+      color: #fff;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    /* Responsive */
+    @media(max-width: 600px) {
+      section { margin: 10px; padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="IMG_0990.jpg" alt="Photo of Wovenu Bless">
+    <h1>Wovenu Bless</h1>
+    <p>Electrical and Electronics Engineer</p>
+    <div class="social-links">
+      <a href="#" target="_blank">LinkedIn</a>
+      <a href="#" target="_blank">GitHub</a>
+      <a href="#" target="_blank">Twitter</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>I am an aspiring Electrical and Electronics Engineer with strong interest in technology, problem-solving, and innovation. I enjoy working on practical projects that improve daily life and make systems more efficient.</p>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <ul>
+      <li><strong>HO Technical University</strong> – Currently studying Electrical and Electronics Engineering (Level 200)</li>
+      <li><strong>St. Paul’s Senior High School</strong> – Completed Senior High Education</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <ul>
+      <li>Circuit Design & Analysis</li>
+      <li>Embedded Systems (Arduino, Microcontrollers)</li>
+      <li>Solar Energy Systems</li>
+      <li>Power Electronics</li>
+      <li>Programming (C)</li>
+      <li>PCB Design</li>
+      <li>IoT Applications</li>
+      <li>Electrical Machines & Power Systems</li>
+      <li>Troubleshooting & Repairs</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <h3>1. Smart Farm</h3>
+    <p>A Smart Farm project that uses sensors to monitor soil moisture levels and automatically control irrigation systems. This helps conserve water, improve crop yield, and make farming more efficient.</p>
+
+    <h3>2. Solar Tracking Panel</h3>
+    <p>A solar tracking system that follows the movement of the sun to maximize energy generation, improving the efficiency of solar power systems.</p>
+  </section>
+
+  <section>
+    <h2>Interests</h2>
+    <ul>
+      <li>Athletics</li>
+      <li>Studying the world to discover how nature, science, and human life are connected</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <form id="contactForm" action="https://formsubmit.co/mawuenyegahwovenu@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div id="successPopup">✅ Thank you! Your message has been sent successfully.</div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Wovenu Bless. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const popup = document.getElementById("successPopup");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent page reload
+
+      // Serialize form data properly so name/email/message appear
+      const data = new URLSearchParams(new FormData(form));
+
+      fetch(form.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: data
+      })
+      .then(() => {
+        popup.style.display = "block"; // Show success popup
+        form.reset();
+        setTimeout(() => popup.style.display = "none", 5000);
+      })
+      .catch(err => alert("Error sending message. Make sure your email is verified on FormSubmit."));
+    });
+  </script>
+</body>
+</html>
