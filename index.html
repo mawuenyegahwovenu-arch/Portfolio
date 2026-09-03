@@ -1,12 +1,24 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wovenu Bless - Portfolio</title>
+  <title>Wovenu Mawuenyegah - Portfolio</title>
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
 
     /* Header */
     header {
@@ -15,6 +27,7 @@
       text-align: center;
       padding: 30px 15px;
     }
+
     header img {
       width: 130px;
       height: 130px;
@@ -22,15 +35,27 @@
       margin-bottom: 15px;
       object-fit: cover;
     }
-    header h1 { margin-bottom: 5px; }
-    header p { font-size: 1.1rem; color: #ddd; margin-bottom: 10px; }
+
+    header h1 {
+      margin-bottom: 5px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #ddd;
+      margin-bottom: 10px;
+    }
+
     .social-links a {
       color: #fff;
       margin: 0 10px;
       text-decoration: none;
       font-size: 1.2rem;
     }
-    .social-links a:hover { color: #1e90ff; }
+
+    .social-links a:hover {
+      color: #1e90ff;
+    }
 
     /* Sections */
     section {
@@ -38,20 +63,41 @@
       margin: 20px auto;
       padding: 25px;
       border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
       max-width: 900px;
     }
-    section h2 { color: #222; margin-bottom: 15px; }
-    ul { list-style-type: square; padding-left: 20px; margin-bottom: 15px; }
+
+    section h2 {
+      color: #222;
+      margin-bottom: 15px;
+    }
+
+    section h3 {
+      color: #222;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    section h3:first-of-type {
+      margin-top: 0;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
 
     /* Form */
-    form input, form textarea {
+    form input,
+    form textarea {
       width: 100%;
       padding: 10px;
       margin: 8px 0;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+
     form button {
       background: #222;
       color: #fff;
@@ -61,10 +107,12 @@
       cursor: pointer;
       transition: background 0.3s, transform 0.2s;
     }
+
     form button:hover {
       background: #1e90ff;
       transform: translateY(-2px);
     }
+
     #successPopup {
       display: none;
       margin-top: 15px;
@@ -84,16 +132,35 @@
     }
 
     /* Responsive */
-    @media(max-width: 600px) {
-      section { margin: 10px; padding: 15px; }
+    @media (max-width: 600px) {
+      section {
+        margin: 10px;
+        padding: 15px;
+      }
+
+      header img {
+        width: 110px;
+        height: 110px;
+      }
+
+      .social-links a {
+        margin: 0 5px;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
+
 <body>
+
+  <!-- Header -->
   <header>
-    <img src="IMG_0990.jpg" alt="Photo of Wovenu Bless">
-    <h1>Wovenu Bless</h1>
+    <img src="IMG_0990.jpg" alt="Photo of Wovenu Mawuenyegah">
+
+    <h1>Wovenu Mawuenyegah</h1>
+
     <p>Electrical and Electronics Engineer</p>
+
     <div class="social-links">
       <a href="#" target="_blank">LinkedIn</a>
       <a href="#" target="_blank">GitHub</a>
@@ -101,21 +168,40 @@
     </div>
   </header>
 
+
+  <!-- About Me -->
   <section>
     <h2>About Me</h2>
-    <p>I am an aspiring Electrical and Electronics Engineer with strong interest in technology, problem-solving, and innovation. I enjoy working on practical projects that improve daily life and make systems more efficient.</p>
+
+    <p>
+      I am an aspiring Electrical and Electronics Engineer with strong interest
+      in technology, problem-solving, and innovation. I enjoy working on
+      practical projects that improve daily life and make systems more efficient.
+    </p>
   </section>
 
+
+  <!-- Education -->
   <section>
     <h2>Education</h2>
+
     <ul>
-      <li><strong>HO Technical University</strong> – Currently studying Electrical and Electronics Engineering (Level 200)</li>
-      <li><strong>St. Paul’s Senior High School</strong> – Completed Senior High Education</li>
+      <li>
+        <strong>HO Technical University</strong> – Currently studying
+        Electrical and Electronics Engineering (Level 300)
+      </li>
+
+      <li>
+        <strong>St. Paul’s Senior High School</strong> – Completed Senior High Education
+      </li>
     </ul>
   </section>
 
+
+  <!-- Skills -->
   <section>
     <h2>Skills</h2>
+
     <ul>
       <li>Circuit Design & Analysis</li>
       <li>Embedded Systems (Arduino, Microcontrollers)</li>
@@ -129,69 +215,140 @@
     </ul>
   </section>
 
+
+  <!-- Projects -->
   <section>
     <h2>Projects</h2>
+
     <h3>1. Smart Farm</h3>
-    <p>A Smart Farm project that uses sensors to monitor soil moisture levels and automatically control irrigation systems. This helps conserve water, improve crop yield, and make farming more efficient.</p>
+
+    <p>
+      A Smart Farm project that uses sensors to monitor soil moisture levels
+      and automatically control irrigation systems. This helps conserve water,
+      improve crop yield, and make farming more efficient.
+    </p>
+
 
     <h3>2. Solar Tracking Panel</h3>
-    <p>A solar tracking system that follows the movement of the sun to maximize energy generation, improving the efficiency of solar power systems.</p>
+
+    <p>
+      A solar tracking system that follows the movement of the sun to maximize
+      energy generation, improving the efficiency of solar power systems.
+    </p>
+
+
+    <h3>3. Automated Smart Clothesline</h3>
+
+    <p>
+      An automated smart clothesline that detects rain and automatically
+      retracts clothes to a sheltered position. It uses GSM technology to
+      send SMS alerts and receive remote commands, allowing the system to
+      execute corresponding actions from a distance.
+    </p>
+
   </section>
 
+
+  <!-- Interests -->
   <section>
     <h2>Interests</h2>
+
     <ul>
-      <li>Athletics</li>
+      <li>Automotive and Car Enthusiast</li>
+      <li>Electronics and Technology</li>
+      <li>Home Automation</li>
       <li>Studying the world to discover how nature, science, and human life are connected</li>
     </ul>
   </section>
 
+
+  <!-- Contact -->
   <section>
     <h2>Contact</h2>
-    <form id="contactForm" action="https://formsubmit.co/mawuenyegahwovenu@gmail.com" method="POST">
+
+    <form
+      id="contactForm"
+      action="https://formsubmit.co/mawuenyegahwovenu@gmail.com"
+      method="POST"
+    >
+
       <input type="hidden" name="_captcha" value="false">
 
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+      >
 
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+      >
 
       <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+      <textarea
+        id="message"
+        name="message"
+        rows="5"
+        required
+      ></textarea>
 
       <button type="submit">Send Message</button>
+
     </form>
 
-    <div id="successPopup">✅ Thank you! Your message has been sent successfully.</div>
+    <div id="successPopup">
+      ✅ Thank you! Your message has been sent successfully.
+    </div>
   </section>
 
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Wovenu Bless. All rights reserved.</p>
+    <p>&copy; 2025 Wovenu Mawuenyegah. All rights reserved.</p>
   </footer>
 
+
+  <!-- JavaScript -->
   <script>
     const form = document.getElementById("contactForm");
     const popup = document.getElementById("successPopup");
 
     form.addEventListener("submit", function(e) {
-      e.preventDefault(); // Prevent page reload
+      e.preventDefault();
 
-      // Serialize form data properly so name/email/message appear
+      // Serialize form data
       const data = new URLSearchParams(new FormData(form));
 
       fetch(form.action, {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
         body: data
       })
       .then(() => {
-        popup.style.display = "block"; // Show success popup
+        popup.style.display = "block";
+
         form.reset();
-        setTimeout(() => popup.style.display = "none", 5000);
+
+        setTimeout(() => {
+          popup.style.display = "none";
+        }, 5000);
       })
-      .catch(err => alert("Error sending message. Make sure your email is verified on FormSubmit."));
+      .catch(err => {
+        alert(
+          "Error sending message. Make sure your email is verified on FormSubmit."
+        );
+      });
     });
   </script>
+
 </body>
 </html>
+```
