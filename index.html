@@ -4,148 +4,877 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wovenu Mawuenyegah - Portfolio</title>
+
+  <title>Wovenu Mawuenyegah | Electrical & Electronics Engineer</title>
+
+  <meta name="description" content="Portfolio of Wovenu Mawuenyegah, an Electrical and Electronics Engineering student with interests in embedded systems, automation, renewable energy, and practical engineering solutions.">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
+    :root {
+      --bg-dark: #07090e;
+      --bg-card: #0f172a;
+      --bg-card-hover: #1e293b;
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --primary: #38bdf8;
+      --primary-accent: #2563eb;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-green: #10b981;
+
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-code: 'JetBrains Mono', monospace;
+
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      color: #333;
+      font-family: var(--font-main);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* Header */
-    header {
-      background: #222;
-      color: #fff;
-      text-align: center;
-      padding: 30px 15px;
+    .glow-bg {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(56, 189, 248, 0.05) 0%,
+          transparent 40%
+        ),
+        radial-gradient(
+          circle at 80% 60%,
+          rgba(37, 99, 235, 0.05) 0%,
+          transparent 40%
+        );
+
+      z-index: -1;
+      pointer-events: none;
     }
 
-    header img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      margin-bottom: 15px;
-      object-fit: cover;
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav {
+      position: sticky;
+      top: 0;
+
+      background: rgba(7, 9, 14, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
+      z-index: 1000;
+      border-bottom: 1px solid var(--surface-border);
     }
 
-    header h1 {
-      margin-bottom: 5px;
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 24px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    header p {
+    .logo {
+      font-weight: 800;
       font-size: 1.1rem;
-      color: #ddd;
+      letter-spacing: -0.5px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+
+      padding: 80px 24px 70px;
+
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.1;
+
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .hero-content .subtitle {
+      font-size: 1.25rem;
+      color: var(--primary);
+      font-weight: 600;
+
+      margin-bottom: 20px;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-content p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .hero-avatar {
+      position: relative;
+      text-align: center;
+    }
+
+    .hero-avatar img {
+      width: 220px;
+      height: 220px;
+
+      border-radius: 24px;
+      object-fit: cover;
+
+      border: 1px solid var(--surface-border);
+
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 6px 14px;
+
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+
+      border-radius: 20px;
+
+      font-size: 0.8rem;
+      color: var(--accent-green);
+      font-weight: 600;
+
+      margin-bottom: 15px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+
+      background: var(--accent-green);
+      border-radius: 50%;
+
+      box-shadow: 0 0 10px var(--accent-green);
+    }
+
+    .social-bar {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-btn {
+      width: 42px;
+      height: 42px;
+
+      border-radius: 10px;
+
+      background: var(--bg-card);
+      border: 1px solid var(--surface-border);
+
+      color: var(--text-main);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-decoration: none;
+
+      transition: var(--transition);
+    }
+
+    .social-btn:hover {
+      background: var(--primary-accent);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    section {
+      margin-bottom: 80px;
+      scroll-margin-top: 90px;
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+    }
+
+    .section-header h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      margin-top: 8px;
+      max-width: 700px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-card);
+
+      border: 1px solid var(--surface-border);
+      border-radius: 16px;
+
+      padding: 32px;
+
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      border-color: rgba(56, 189, 248, 0.2);
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-text {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .about-text strong {
+      color: var(--text-main);
+    }
+
+    /* =========================
+       TIMELINE
+    ========================= */
+
+    .timeline-item {
+      padding-left: 20px;
+
+      border-left: 2px solid var(--surface-border);
+
+      position: relative;
+      margin-bottom: 28px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+
+      position: absolute;
+      left: -6px;
+      top: 4px;
+
+      width: 10px;
+      height: 10px;
+
+      border-radius: 50%;
+
+      background: var(--primary);
+    }
+
+    .timeline-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .timeline-sub {
+      color: var(--primary);
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .timeline-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tag {
+      background: rgba(255, 255, 255, 0.03);
+
+      border: 1px solid var(--surface-border);
+
+      padding: 8px 16px;
+
+      border-radius: 8px;
+
+      font-size: 0.88rem;
+
+      font-family: var(--font-code);
+
+      color: #e2e8f0;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-tag i {
+      color: var(--primary);
+    }
+
+    /* =========================
+       PROJECT FILTER
+    ========================= */
+
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+
+      margin-bottom: 24px;
+
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: var(--bg-card);
+
+      border: 1px solid var(--surface-border);
+
+      color: var(--text-muted);
+
+      padding: 8px 16px;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      font-size: 0.85rem;
+      font-weight: 600;
+
+      transition: var(--transition);
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--primary-accent);
+      color: #fff;
+      border-color: var(--primary-accent);
+    }
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .project-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+
+      border: 1px solid var(--surface-border);
+
+      border-radius: 16px;
+
+      padding: 28px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      background: var(--bg-card-hover);
+
+      transform: translateY(-3px);
+    }
+
+    .project-icon {
+      width: 48px;
+      height: 48px;
+
+      border-radius: 12px;
+
+      background: rgba(56, 189, 248, 0.1);
+
+      color: var(--primary);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 1.3rem;
+
+      margin-bottom: 20px;
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+
       margin-bottom: 10px;
     }
 
-    .social-links a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-      font-size: 1.2rem;
+    .project-body {
+      color: var(--text-muted);
+
+      font-size: 0.95rem;
+
+      margin-bottom: 16px;
     }
 
-    .social-links a:hover {
-      color: #1e90ff;
+    /* =========================
+       PROJECT GALLERY
+    ========================= */
+
+    .project-gallery {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 12px;
+
+      margin: 16px 0 20px;
     }
 
-    /* Sections */
-    section {
-      background: #fff;
-      margin: 20px auto;
-      padding: 25px;
+    .project-gallery.single {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-item {
+      position: relative;
+
       border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-      max-width: 900px;
+
+      overflow: hidden;
+
+      border: 1px solid var(--surface-border);
+
+      background: var(--bg-dark);
     }
 
-    section h2 {
-      color: #222;
-      margin-bottom: 15px;
-    }
-
-    section h3 {
-      color: #222;
-      margin-top: 15px;
-      margin-bottom: 5px;
-    }
-
-    section h3:first-of-type {
-      margin-top: 0;
-    }
-
-    ul {
-      list-style-type: square;
-      padding-left: 20px;
-      margin-bottom: 15px;
-    }
-
-    /* Form */
-    form input,
-    form textarea {
+    .gallery-item img {
       width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      height: 180px;
+
+      object-fit: cover;
+
+      display: block;
+
+      transition: transform 0.3s ease;
     }
 
-    form button {
-      background: #222;
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .img-label {
+      position: absolute;
+
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      background: rgba(7, 9, 14, 0.88);
+
+      backdrop-filter: blur(4px);
+
+      color: var(--text-main);
+
+      font-size: 0.75rem;
+      font-weight: 600;
+
+      padding: 7px 10px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 6px;
+
+      border-top: 1px solid var(--surface-border);
+    }
+
+    /* =========================
+       PROJECT TECHNOLOGIES
+    ========================= */
+
+    .project-tech {
+      display: flex;
+
+      gap: 8px;
+
+      flex-wrap: wrap;
+    }
+
+    .tech-pill {
+      font-size: 0.75rem;
+
+      font-family: var(--font-code);
+
+      color: var(--primary);
+
+      background: rgba(56, 189, 248, 0.08);
+
+      padding: 4px 8px;
+
+      border-radius: 4px;
+    }
+
+    /* =========================
+       INTERESTS
+    ========================= */
+
+    .interests-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+      gap: 16px;
+    }
+
+    .interest-card {
+      background: var(--bg-card);
+
+      border: 1px solid var(--surface-border);
+
+      border-radius: 14px;
+
+      padding: 24px;
+
+      transition: var(--transition);
+    }
+
+    .interest-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+
+      transform: translateY(-3px);
+    }
+
+    .interest-card i {
+      color: var(--primary);
+
+      font-size: 1.4rem;
+
+      margin-bottom: 14px;
+    }
+
+    .interest-card h3 {
+      font-size: 1rem;
+
+      margin-bottom: 6px;
+    }
+
+    .interest-card p {
+      color: var(--text-muted);
+
+      font-size: 0.88rem;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+
+      font-weight: 600;
+
+      color: var(--text-muted);
+    }
+
+    .form-control {
+      background: rgba(255, 255, 255, 0.02);
+
+      border: 1px solid var(--surface-border);
+
+      border-radius: 8px;
+
+      padding: 12px 16px;
+
+      color: var(--text-main);
+
+      font-family: var(--font-main);
+
+      font-size: 0.95rem;
+
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+
+      border-color: var(--primary);
+
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .btn-submit {
+      background: var(--primary-accent);
+
       color: #fff;
-      padding: 12px 20px;
+
+      padding: 14px 28px;
+
       border: none;
-      border-radius: 5px;
+
+      border-radius: 8px;
+
+      font-weight: 600;
+
       cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
+
+      font-size: 0.95rem;
+
+      transition: var(--transition);
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 8px;
     }
 
-    form button:hover {
-      background: #1e90ff;
+    .btn-submit:hover {
+      background: #1d4ed8;
+
       transform: translateY(-2px);
     }
 
-    #successPopup {
+    .btn-submit:disabled {
+      opacity: 0.7;
+
+      cursor: not-allowed;
+
+      transform: none;
+    }
+
+    #formAlert {
       display: none;
-      margin-top: 15px;
-      padding: 15px;
-      background: #e0ffe0;
-      border: 1px solid green;
-      border-radius: 5px;
+
+      padding: 12px 16px;
+
+      border-radius: 8px;
+
+      font-size: 0.9rem;
+
+      margin-top: 10px;
     }
 
-    /* Footer */
+    #formAlert.success {
+      background: rgba(16, 185, 129, 0.1);
+
+      border: 1px solid rgba(16, 185, 129, 0.3);
+
+      color: var(--accent-green);
+    }
+
+    #formAlert.error {
+      background: rgba(239, 68, 68, 0.1);
+
+      border: 1px solid rgba(239, 68, 68, 0.3);
+
+      color: #f87171;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
+      border-top: 1px solid var(--surface-border);
+
+      padding: 30px 24px;
+
       text-align: center;
-      background: #222;
-      color: #fff;
-      padding: 15px;
-      margin-top: 20px;
+
+      color: var(--text-muted);
+
+      font-size: 0.88rem;
     }
 
-    /* Responsive */
-    @media (max-width: 600px) {
-      section {
-        margin: 10px;
-        padding: 15px;
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 868px) {
+
+      header {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        gap: 30px;
       }
 
-      header img {
-        width: 110px;
-        height: 110px;
+      .hero-content p {
+        margin: 0 auto 30px;
       }
 
-      .social-links a {
-        margin: 0 5px;
-        font-size: 1rem;
+      .hero-avatar {
+        order: -1;
+      }
+
+      .social-bar {
+        justify-content: center;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .project-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      header {
+        padding-top: 55px;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-content .subtitle {
+        justify-content: center;
+
+        font-size: 1.05rem;
+      }
+
+      .hero-avatar img {
+        width: 190px;
+        height: 190px;
+      }
+
+      .card,
+      .project-card {
+        padding: 22px;
+      }
+
+      main {
+        padding-left: 18px;
+        padding-right: 18px;
       }
     }
   </style>
@@ -153,200 +882,910 @@
 
 <body>
 
-  <!-- Header -->
-  <header>
-    <img src="IMG_0990.jpg" alt="Photo of Wovenu Mawuenyegah">
+  <div class="glow-bg"></div>
 
-    <h1>Wovenu Mawuenyegah</h1>
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
 
-    <p>Electrical and Electronics Engineer</p>
+  <nav>
+    <div class="nav-container">
 
-    <div class="social-links">
-      <a href="#" target="_blank">LinkedIn</a>
-      <a href="#" target="_blank">GitHub</a>
-      <a href="#" target="_blank">Twitter</a>
+      <a href="#" class="logo">
+        Wovenu<span>.dev</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
     </div>
+  </nav>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <header id="about">
+
+    <div class="hero-content">
+
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        Open to Engineering Opportunities
+      </div>
+
+      <h1>Wovenu Mawuenyegah</h1>
+
+      <div class="subtitle">
+        <i class="fa-solid fa-microchip"></i>
+        Electrical & Electronics Engineer
+      </div>
+
+      <p>
+        I am an Electrical and Electronics Engineering student with a strong
+        interest in embedded systems, automation, renewable energy, and
+        practical problem-solving. I enjoy designing and building systems
+        that combine hardware and software to solve real-world problems.
+      </p>
+
+      <div class="social-bar">
+
+        <!-- Replace these placeholder links with your actual profiles -->
+
+        <a
+          href="https://linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-btn"
+          aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <a
+          href="https://github.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-btn"
+          aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a
+          href="https://twitter.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-btn"
+          aria-label="Twitter">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+
+        <a
+          href="mailto:mawuenyegahwovenu@gmail.com"
+          class="social-btn"
+          aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="hero-avatar">
+      <img
+        src="IMG_0990.jpg"
+        alt="Wovenu Mawuenyegah Profile Photo">
+    </div>
+
   </header>
 
 
-  <!-- About Me -->
-  <section>
-    <h2>About Me</h2>
+  <main>
 
-    <p>
-      I am an aspiring Electrical and Electronics Engineer with strong interest
-      in technology, problem-solving, and innovation. I enjoy working on
-      practical projects that improve daily life and make systems more efficient.
-    </p>
-  </section>
+    <!-- =========================
+         ABOUT
+    ========================= -->
 
+    <section>
 
-  <!-- Education -->
-  <section>
-    <h2>Education</h2>
+      <div class="section-header">
+        <h2>About Me</h2>
+      </div>
 
-    <ul>
-      <li>
-        <strong>HO Technical University</strong> – Currently studying
-        Electrical and Electronics Engineering (Level 300)
-      </li>
+      <div class="card">
 
-      <li>
-        <strong>St. Paul’s Senior High School</strong> – Completed Senior High Education
-      </li>
-    </ul>
-  </section>
+        <p class="about-text">
+          I am an <strong>Electrical and Electronics Engineering student</strong>
+          with practical interests in embedded systems, automation,
+          renewable energy, electronics, and system design.
 
+          My interest lies in understanding how electrical and electronic
+          systems work and applying that knowledge to develop practical
+          solutions. I enjoy working with microcontrollers, sensors,
+          motors, communication modules, and control systems while
+          continuously improving my technical and problem-solving skills.
+        </p>
 
-  <!-- Skills -->
-  <section>
-    <h2>Skills</h2>
+      </div>
 
-    <ul>
-      <li>Circuit Design & Analysis</li>
-      <li>Embedded Systems (Arduino, Microcontrollers)</li>
-      <li>Solar Energy Systems</li>
-      <li>Power Electronics</li>
-      <li>Programming (C)</li>
-      <li>PCB Design</li>
-      <li>IoT Applications</li>
-      <li>Electrical Machines & Power Systems</li>
-      <li>Troubleshooting & Repairs</li>
-    </ul>
-  </section>
+    </section>
 
 
-  <!-- Projects -->
-  <section>
-    <h2>Projects</h2>
+    <!-- =========================
+         EDUCATION
+    ========================= -->
 
-    <h3>1. Smart Farm</h3>
+    <section id="education">
 
-    <p>
-      A Smart Farm project that uses sensors to monitor soil moisture levels
-      and automatically control irrigation systems. This helps conserve water,
-      improve crop yield, and make farming more efficient.
-    </p>
+      <div class="section-header">
+        <h2>Education & Credentials</h2>
+      </div>
 
+      <div class="card">
 
-    <h3>2. Solar Tracking Panel</h3>
+        <div class="timeline-item">
 
-    <p>
-      A solar tracking system that follows the movement of the sun to maximize
-      energy generation, improving the efficiency of solar power systems.
-    </p>
+          <div class="timeline-title">
+            Ho Technical University
+          </div>
 
+          <div class="timeline-sub">
+            Higher National Diploma (HND) — Electrical & Electronics Engineering
+          </div>
 
-    <h3>3. Automated Smart Clothesline</h3>
+          <div class="timeline-desc">
+            2026
+          </div>
 
-    <p>
-      An automated smart clothesline that detects rain and automatically
-      retracts clothes to a sheltered position. It uses GSM technology to
-      send SMS alerts and receive remote commands, allowing the system to
-      execute corresponding actions from a distance.
-    </p>
+          <div class="timeline-desc">
+            Studies and practical work covering microcontroller systems,
+            circuit theory, control systems, electrical machines,
+            electronics, electrical installation, and automation.
+          </div>
 
-  </section>
-
-
-  <!-- Interests -->
-  <section>
-    <h2>Interests</h2>
-
-    <ul>
-      <li>Automotive and Car Enthusiast</li>
-      <li>Electronics and Technology</li>
-      <li>Home Automation</li>
-      <li>Studying the world to discover how nature, science, and human life are connected</li>
-    </ul>
-  </section>
+        </div>
 
 
-  <!-- Contact -->
-  <section>
-    <h2>Contact</h2>
+        <div class="timeline-item">
 
-    <form
-      id="contactForm"
-      action="https://formsubmit.co/mawuenyegahwovenu@gmail.com"
-      method="POST"
-    >
+          <div class="timeline-title">
+            St. Paul’s Senior High School
+          </div>
 
-      <input type="hidden" name="_captcha" value="false">
+          <div class="timeline-sub">
+            WASSCE Certificate — Science Program
+          </div>
 
-      <label for="name">Name:</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        required
-      >
+          <div class="timeline-desc">
+            Foundational studies in Mathematics, Physics,
+            Chemistry, and related science subjects.
+          </div>
 
-      <label for="email">Email:</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required
-      >
+        </div>
 
-      <label for="message">Message:</label>
-      <textarea
-        id="message"
-        name="message"
-        rows="5"
-        required
-      ></textarea>
+      </div>
 
-      <button type="submit">Send Message</button>
-
-    </form>
-
-    <div id="successPopup">
-      ✅ Thank you! Your message has been sent successfully.
-    </div>
-  </section>
+    </section>
 
 
-  <!-- Footer -->
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section id="skills">
+
+      <div class="section-header">
+        <h2>Technical Skills</h2>
+      </div>
+
+      <div class="card">
+
+        <div class="skills-container">
+
+          <span class="skill-tag">
+            <i class="fa-solid fa-bolt"></i>
+            Circuit Design & Analysis
+          </span>
+
+          <span class="skill-tag">
+            <i class="fa-solid fa-microchip"></i>
+            Embedded Systems
+          </span>
+
+          <span class="skill-tag">
+            <i class="fa-solid fa-code"></i>
+            Arduino & C/C++
+          </span>
+
+          <span class="skill-tag">
+            <i class="fa-solid fa-sun"></i>
+            Solar Energy Systems
+          </span>
+
+          <span class="skill-tag">
+            <i class="fa-solid fa-car-battery"></i>
+            Power Electronics
+          </span>
+
+          <span class="skill-tag">
+            <i class="fa-solid fa-layer-group"></i>
+            PCB Layout Design
+          </span>
+
+          <span class="skill-tag">
+            <i class="fa-solid fa-wifi"></i>
+            IoT Applications
+          </span>
+
+          <span class="skill-tag">
+            <i class="fa-solid fa-gears"></i>
+            Control Systems
+          </span>
+
+          <span class="skill-tag">
+            <i class="fa-solid fa-plug"></i>
+            Electrical Machines
+          </span>
+
+          <span class="skill-tag">
+            <i class="fa-solid fa-wrench"></i>
+            Diagnostics & Troubleshooting
+          </span>
+
+          <span class="skill-tag">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            Electrical Installation
+          </span>
+
+          <span class="skill-tag">
+            <i class="fa-solid fa-diagram-project"></i>
+            Proteus Simulation
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects">
+
+      <div class="section-header">
+
+        <h2>Featured Engineering Projects</h2>
+
+        <p>
+          Selected practical projects demonstrating my experience
+          with electronics, automation, embedded systems, and renewable energy.
+        </p>
+
+      </div>
+
+
+      <!-- Project Filters -->
+
+      <div class="filter-bar">
+
+        <button
+          class="filter-btn active"
+          data-filter="all">
+          All Projects
+        </button>
+
+        <button
+          class="filter-btn"
+          data-filter="iot">
+          Smart & Automated Systems
+        </button>
+
+        <button
+          class="filter-btn"
+          data-filter="solar">
+          Solar Energy
+        </button>
+
+      </div>
+
+
+      <div class="project-grid">
+
+
+        <!-- =========================
+             PROJECT 1
+        ========================= -->
+
+        <div
+          class="project-card"
+          data-category="iot">
+
+          <div>
+
+            <div class="project-icon">
+              <i class="fa-solid fa-cloud-rain"></i>
+            </div>
+
+            <h3 class="project-title">
+              Automated Smart Clothesline
+            </h3>
+
+            <p class="project-body">
+              The system detects rain and automatically retracts clothes
+              to a sheltered position. It uses GSM technology to send
+              SMS alerts and receive remote commands, allowing the system
+              to execute the corresponding actions from a distance.
+            </p>
+
+
+            <!-- Clothesline Photos -->
+
+            <div class="project-gallery">
+
+              <div class="gallery-item">
+
+                <img
+                  src="clothesline_open.jpg"
+                  alt="Automated Smart Clothesline with Clothes Out for Drying">
+
+                <span class="img-label">
+                  <i class="fa-solid fa-sun"></i>
+                  Clothes Out — Drying Position
+                </span>
+
+              </div>
+
+
+              <div class="gallery-item">
+
+                <img
+                  src="clothesline_closed.jpg"
+                  alt="Automated Smart Clothesline with Clothes Retracted Under Shelter">
+
+                <span class="img-label">
+                  <i class="fa-solid fa-umbrella"></i>
+                  Clothes Retracted — Sheltered Position
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-tech">
+
+            <span class="tech-pill">
+              Arduino
+            </span>
+
+            <span class="tech-pill">
+              GSM / SMS
+            </span>
+
+            <span class="tech-pill">
+              Rain Sensor
+            </span>
+
+            <span class="tech-pill">
+              Servo / Motor Control
+            </span>
+
+            <span class="tech-pill">
+              Embedded C++
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+             PROJECT 2
+        ========================= -->
+
+        <div
+          class="project-card"
+          data-category="iot">
+
+          <div>
+
+            <div class="project-icon">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+
+            <h3 class="project-title">
+              Smart Farm
+            </h3>
+
+            <p class="project-body">
+              A sensor-based agricultural automation system designed
+              to monitor soil conditions and control irrigation
+              automatically when watering is required.
+            </p>
+
+
+            <div class="project-gallery single">
+
+              <div class="gallery-item">
+
+                <img
+                  src="smart_farm.jpg"
+                  alt="Smart Farm Automatic Irrigation System">
+
+                <span class="img-label">
+                  <i class="fa-solid fa-droplet"></i>
+                  Automatic Irrigation in Operation
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-tech">
+
+            <span class="tech-pill">
+              Sensors
+            </span>
+
+            <span class="tech-pill">
+              Automated Irrigation
+            </span>
+
+            <span class="tech-pill">
+              Microcontroller
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+             PROJECT 3
+        ========================= -->
+
+        <div
+          class="project-card"
+          data-category="solar">
+
+          <div>
+
+            <div class="project-icon">
+              <i class="fa-solid fa-solar-panel"></i>
+            </div>
+
+            <h3 class="project-title">
+              Solar Tracking Panel
+            </h3>
+
+            <p class="project-body">
+              A solar tracking system designed to adjust the position
+              of a solar panel in response to light conditions,
+              helping the panel maintain a more favorable orientation
+              toward available sunlight.
+            </p>
+
+
+            <div class="project-gallery single">
+
+              <div class="gallery-item">
+
+                <img
+                  src="solar_tracker.jpg"
+                  alt="Solar Tracking Panel System">
+
+                <span class="img-label">
+                  <i class="fa-solid fa-solar-panel"></i>
+                  Solar Tracking System
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-tech">
+
+            <span class="tech-pill">
+              Solar Energy
+            </span>
+
+            <span class="tech-pill">
+              Light Sensors
+            </span>
+
+            <span class="tech-pill">
+              Motor Control
+            </span>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTERESTS
+    ========================= -->
+
+    <section id="interests">
+
+      <div class="section-header">
+
+        <h2>Interests</h2>
+
+        <p>
+          Areas that continue to inspire my learning,
+          creativity, and personal development.
+        </p>
+
+      </div>
+
+
+      <div class="interests-grid">
+
+
+        <div class="interest-card">
+
+          <i class="fa-solid fa-car"></i>
+
+          <h3>
+            Automotive & Car Enthusiast
+          </h3>
+
+          <p>
+            Interested in automotive technology, vehicle systems,
+            engineering, and the technology behind modern cars.
+          </p>
+
+        </div>
+
+
+        <div class="interest-card">
+
+          <i class="fa-solid fa-microchip"></i>
+
+          <h3>
+            Electronics & Technology
+          </h3>
+
+          <p>
+            Exploring electronics, emerging technologies,
+            embedded systems, and practical engineering solutions.
+          </p>
+
+        </div>
+
+
+        <div class="interest-card">
+
+          <i class="fa-solid fa-house-signal"></i>
+
+          <h3>
+            Home Automation
+          </h3>
+
+          <p>
+            Interested in smart systems that improve convenience,
+            efficiency, safety, and control within homes.
+          </p>
+
+        </div>
+
+
+        <div class="interest-card">
+
+          <i class="fa-solid fa-globe"></i>
+
+          <h3>
+            Understanding the World
+          </h3>
+
+          <p>
+            Studying the world to discover how nature, science,
+            and human life are connected.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section id="contact">
+
+      <div class="section-header">
+
+        <h2>Get In Touch</h2>
+
+        <p>
+          Interested in discussing an engineering project,
+          collaboration, or opportunity? Send me a message.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <form
+          id="contactForm"
+          class="contact-form"
+          action="https://formsubmit.co/mawuenyegahwovenu@gmail.com"
+          method="POST">
+
+          <input
+            type="hidden"
+            name="_captcha"
+            value="false">
+
+
+          <div class="grid-2">
+
+            <div class="form-group">
+
+              <label for="name">
+                Your Name
+              </label>
+
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-control"
+                placeholder="John Doe"
+                required>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="email">
+                Email Address
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                placeholder="john@example.com"
+                required>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="message">
+              Message
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              class="form-control"
+              placeholder="Discuss a potential project or opportunity..."
+              required></textarea>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="btn-submit"
+            id="submitBtn">
+
+            <span>
+              Send Message
+            </span>
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+          </button>
+
+        </form>
+
+
+        <div id="formAlert"></div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
-    <p>&copy; 2025 Wovenu Mawuenyegah. All rights reserved.</p>
+
+    <p>
+      &copy; 2026 Wovenu Mawuenyegah.
+      Electrical & Electronics Engineering Portfolio.
+    </p>
+
   </footer>
 
 
-  <!-- JavaScript -->
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
   <script>
-    const form = document.getElementById("contactForm");
-    const popup = document.getElementById("successPopup");
+
+    /* =========================
+       PROJECT FILTER
+    ========================= */
+
+    const filterBtns =
+      document.querySelectorAll('.filter-btn');
+
+    const projectCards =
+      document.querySelectorAll('.project-card');
+
+
+    filterBtns.forEach(btn => {
+
+      btn.addEventListener('click', () => {
+
+        filterBtns.forEach(b =>
+          b.classList.remove('active')
+        );
+
+        btn.classList.add('active');
+
+
+        const filter =
+          btn.dataset.filter;
+
+
+        projectCards.forEach(card => {
+
+          if (
+            filter === 'all' ||
+            card.dataset.category === filter
+          ) {
+
+            card.style.display = 'flex';
+
+          } else {
+
+            card.style.display = 'none';
+
+          }
+
+        });
+
+      });
+
+    });
+
+
+    /* =========================
+       CONTACT FORM
+    ========================= */
+
+    const form =
+      document.getElementById("contactForm");
+
+    const submitBtn =
+      document.getElementById("submitBtn");
+
+    const alertBox =
+      document.getElementById("formAlert");
+
 
     form.addEventListener("submit", function(e) {
+
       e.preventDefault();
 
-      // Serialize form data
-      const data = new URLSearchParams(new FormData(form));
+
+      submitBtn.disabled = true;
+
+      submitBtn.innerHTML = `
+        <span>Sending...</span>
+        <i class="fa-solid fa-spinner fa-spin"></i>
+      `;
+
+
+      alertBox.style.display = "none";
+
+
+      const data =
+        new URLSearchParams(
+          new FormData(form)
+        );
+
 
       fetch(form.action, {
+
         method: "POST",
+
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
+          "Content-Type":
+            "application/x-www-form-urlencoded"
         },
+
         body: data
+
       })
-      .then(() => {
-        popup.style.display = "block";
+
+      .then(response => {
+
+        if (!response.ok) {
+          throw new Error("Message could not be sent.");
+        }
+
+        alertBox.className = "success";
+
+        alertBox.innerText =
+          "✓ Your message has been sent successfully. I will get back to you shortly!";
+
+        alertBox.style.display = "block";
 
         form.reset();
 
-        setTimeout(() => {
-          popup.style.display = "none";
-        }, 5000);
       })
-      .catch(err => {
-        alert(
-          "Error sending message. Make sure your email is verified on FormSubmit."
-        );
+
+      .catch(error => {
+
+        console.error(error);
+
+        alertBox.className = "error";
+
+        alertBox.innerText =
+          "✕ Unable to send the message. Please contact me directly by email.";
+
+        alertBox.style.display = "block";
+
+      })
+
+      .finally(() => {
+
+        submitBtn.disabled = false;
+
+        submitBtn.innerHTML = `
+          <span>Send Message</span>
+          <i class="fa-solid fa-paper-plane"></i>
+        `;
+
       });
+
     });
+
   </script>
 
 </body>
